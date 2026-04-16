@@ -1,353 +1,240 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-        <link rel="icon" href="/chrome-ext-privacy-policies/favicon.svg">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BananaWare - Chrome Extensions Publisher</title>
-    <meta name="description" content="BananaWare publishes 20+ privacy-first Chrome extensions. No data collection. Pro upgrades for just EUR 1.49 one-time.">
-    <meta name="keywords" content="Chrome extensions, browser tools, productivity, privacy-first, BananaWare, dark mode, bookmarks, QR code, tab manager, regex tester">
-    <meta name="author" content="BananaWare">
-    <meta property="og:title" content="BananaWare - Chrome Extensions Publisher">
-    <meta property="og:description" content="20+ privacy-first Chrome extensions. No data collection. Pro upgrades for just EUR 1.49 one-time.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://luispcfialho.github.io/chrome-ext-privacy-policies/index.html">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="BananaWare - Chrome Extensions Publisher">
-    <meta name="twitter:description" content="20+ privacy-first Chrome extensions. No data collection. Pro upgrades for just EUR 1.49 one-time.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <style>
-        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-        :root {
-            --purple-start: #6C5CE7;
-            --purple-end: #a29bfe;
-            --bg: #0f0f13;
-            --card-bg: #1a1a24;
-            --card-border: #2a2a3a;
-            --text: #e8e8f0;
-            --text-muted: #9090a8;
-            --accent: #a29bfe;
-        }
-
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: var(--bg);
-            color: var(--text);
-            line-height: 1.6;
-            min-height: 100vh;
-        }
-
-        header {
-            background: linear-gradient(135deg, #18182a 0%, #1e1e35 100%);
-            border-bottom: 1px solid var(--card-border);
-            padding: 1.5rem 2rem;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            backdrop-filter: blur(12px);
-        }
-
-        .header-inner {
-            max-width: 1280px;
-            margin: 0 auto;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            text-decoration: none;
-        }
-
-        .logo-icon {
-            width: 40px;
-            height: 40px;
-            background: linear-gradient(135deg, var(--purple-start), var(--purple-end));
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.4rem;
-        }
-
-        .logo-text {
-            font-size: 1.4rem;
-            font-weight: 800;
-            background: linear-gradient(135deg, var(--purple-start), var(--purple-end));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            letter-spacing: -0.02em;
-        }
-
-        .header-badge {
-            font-size: 0.75rem;
-            color: var(--text-muted);
-            background: rgba(162, 155, 254, 0.1);
-            padding: 0.35rem 0.75rem;
-            border-radius: 20px;
-            border: 1px solid rgba(162, 155, 254, 0.2);
-        }
-
-        .hero {
-            text-align: center;
-            padding: 5rem 2rem 3rem;
-            background: radial-gradient(ellipse at 50% 0%, rgba(108, 92, 231, 0.15) 0%, transparent 60%);
-        }
-
-        .hero h1 {
-            font-size: clamp(2rem, 5vw, 3.2rem);
-            font-weight: 800;
-            letter-spacing: -0.03em;
-            margin-bottom: 1rem;
-        }
-
-        .hero h1 span {
-            background: linear-gradient(135deg, var(--purple-start), var(--purple-end));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .hero p {
-            font-size: 1.15rem;
-            color: var(--text-muted);
-            max-width: 600px;
-            margin: 0 auto 2rem;
-        }
-
-        .badges {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
-
-        .badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.4rem;
-            padding: 0.5rem 1rem;
-            border-radius: 24px;
-            font-size: 0.85rem;
-            font-weight: 600;
-        }
-
-        .badge--privacy {
-            background: rgba(0, 206, 158, 0.12);
-            color: #00ce9e;
-            border: 1px solid rgba(0, 206, 158, 0.25);
-        }
-
-        .badge--pro {
-            background: rgba(162, 155, 254, 0.12);
-            color: var(--accent);
-            border: 1px solid rgba(162, 155, 254, 0.25);
-        }
-
-        .badge--count {
-            background: rgba(253, 203, 110, 0.12);
-            color: #fdcb6e;
-            border: 1px solid rgba(253, 203, 110, 0.25);
-        }
-
-        .grid-section {
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 2rem 2rem 4rem;
-        }
-
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 1.25rem;
-        }
-
-        .card {
-            background: var(--card-bg);
-            border: 1px solid var(--card-border);
-            border-radius: 14px;
-            padding: 1.5rem;
-            transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .card:hover {
-            transform: translateY(-4px);
-            border-color: rgba(162, 155, 254, 0.4);
-            box-shadow: 0 8px 32px rgba(108, 92, 231, 0.15);
-        }
-
-        .card-icon {
-            width: 44px;
-            height: 44px;
-            border-radius: 10px;
-            background: linear-gradient(135deg, var(--purple-start), var(--purple-end));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.3rem;
-            margin-bottom: 1rem;
-            flex-shrink: 0;
-        }
-
-        .card h3 {
-            font-size: 1.05rem;
-            font-weight: 700;
-            margin-bottom: 0.35rem;
-            letter-spacing: -0.01em;
-        }
-
-        .card p {
-            font-size: 0.88rem;
-            color: var(--text-muted);
-            margin-bottom: 1.25rem;
-            flex-grow: 1;
-        }
-
-        .card-links {
-            display: flex;
-            gap: 0.6rem;
-        }
-
-        .card-link {
-            flex: 1;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.3rem;
-            padding: 0.55rem 0.75rem;
-            border-radius: 8px;
-            font-size: 0.78rem;
-            font-weight: 600;
-            text-decoration: none;
-            transition: background 0.2s ease, transform 0.1s ease;
-        }
-
-        .card-link:active { transform: scale(0.97); }
-
-        .card-link--cws {
-            background: rgba(162, 155, 254, 0.15);
-            color: var(--accent);
-            border: 1px solid rgba(162, 155, 254, 0.25);
-        }
-
-        .card-link--cws:hover {
-            background: rgba(162, 155, 254, 0.25);
-        }
-
-        .card-link--landing {
-            background: rgba(255, 255, 255, 0.06);
-            color: var(--text);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .card-link--landing:hover {
-            background: rgba(255, 255, 255, 0.1);
-        }
-
-        footer {
-            text-align: center;
-            padding: 2.5rem 2rem;
-            border-top: 1px solid var(--card-border);
-            color: var(--text-muted);
-            font-size: 0.85rem;
-        }
-
-        footer a {
-            color: var(--accent);
-            text-decoration: none;
-        }
-
-        footer a:hover { text-decoration: underline; }
-
-        @media (max-width: 640px) {
-            header { padding: 1rem; }
-            .hero { padding: 3rem 1.25rem 2rem; }
-            .grid-section { padding: 1.5rem 1.25rem 3rem; }
-            .grid { grid-template-columns: 1fr; }
-            .header-badge { display: none; }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BananaWare - Privacy-First Chrome Extensions</title>
+  <meta name="description" content="BananaWare: 20+ privacy-first Chrome extensions. Free to use, no data collection. Pro upgrade just 1.49 EUR one-time.">
+  <meta name="keywords" content="chrome extensions, browser extensions, developer tools, productivity, privacy-first, BananaWare">
+  <meta property="og:title" content="BananaWare - Privacy-First Chrome Extensions">
+  <meta property="og:description" content="20+ free Chrome extensions. No tracking, no accounts.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="/chrome-ext-privacy-policies/favicon.svg">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:'Inter',sans-serif;background:#0f0f1a;color:#e0e0e0}
+    .header{background:linear-gradient(135deg,#6C5CE7,#a29bfe);padding:60px 20px;text-align:center}
+    .header h1{font-size:3rem;font-weight:800;color:white;margin-bottom:12px}
+    .header p{font-size:1.2rem;color:rgba(255,255,255,0.9);max-width:600px;margin:0 auto 24px}
+    .badges{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-top:20px}
+    .badge{background:rgba(255,255,255,0.2);color:white;padding:8px 20px;border-radius:20px;font-size:0.9rem;font-weight:600}
+    .grid{max-width:1200px;margin:40px auto;padding:0 20px;display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:24px}
+    .card{background:#1a1a2e;border-radius:16px;padding:28px;border:1px solid #2a2a4a;transition:transform 0.2s,border-color 0.2s}
+    .card:hover{transform:translateY(-4px);border-color:#6C5CE7}
+    .card-icon{width:56px;height:56px;border-radius:14px;background:linear-gradient(135deg,#6C5CE7,#a29bfe);display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:800;color:white;margin-bottom:16px}
+    .card h3{font-size:1.15rem;font-weight:700;margin-bottom:6px;color:white}
+    .card p{font-size:0.9rem;color:#999;margin-bottom:16px}
+    .card-links{display:flex;gap:10px}
+    .btn-cws{background:#6C5CE7;color:white;padding:8px 16px;border-radius:8px;text-decoration:none;font-size:0.85rem;font-weight:600}
+    .btn-cws:hover{background:#5a4bd1}
+    .btn-landing{background:transparent;color:#a29bfe;padding:8px 16px;border-radius:8px;text-decoration:none;font-size:0.85rem;font-weight:600;border:1px solid #2a2a4a}
+    .btn-landing:hover{border-color:#6C5CE7}
+    .blog-section{max-width:1200px;margin:40px auto;padding:0 20px}
+    .blog-section h2{font-size:1.8rem;color:white;margin-bottom:20px;text-align:center}
+    .blog-links{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+    .blog-links a{background:#1a1a2e;color:#a29bfe;padding:12px 24px;border-radius:10px;text-decoration:none;border:1px solid #2a2a4a;font-size:0.9rem}
+    .blog-links a:hover{border-color:#6C5CE7}
+    .footer{text-align:center;padding:40px 20px;color:#666;font-size:0.85rem;border-top:1px solid #1a1a2e;margin-top:60px}
+    .footer a{color:#6C5CE7}
+    @media(max-width:600px){.header h1{font-size:2rem}.grid{grid-template-columns:1fr}}
+  </style>
 </head>
 <body>
-
-<header>
-    <div class="header-inner">
-        <a href="#" class="logo">
-            <div class="logo-icon">&#127820;</div>
-            <span class="logo-text">BananaWare</span>
-        </a>
-        <span class="header-badge">Chrome Extension Publisher</span>
-    </div>
-</header>
-
-<section class="hero">
-    <h1>Browser tools that <span>just work</span></h1>
-    <p>20 lightweight Chrome extensions built with privacy at the core. No data collection, no tracking, no accounts required.</p>
+  <div class="header">
+    <h1>BananaWare</h1>
+    <p>Privacy-first Chrome extensions. Free to use, no data collection.</p>
     <div class="badges">
-        <span class="badge badge--privacy">&#128274; Privacy-first &mdash; zero data collection</span>
-        <span class="badge badge--pro">&#11088; Pro upgrade &euro;1.49 one-time</span>
-        <span class="badge badge--count">&#128230; 20 published extensions</span>
+      <span class="badge">19 Extensions</span>
+      <span class="badge">Zero Data Collection</span>
+      <span class="badge">Pro: 1.49 EUR One-Time</span>
     </div>
-</section>
-
-<section class="grid-section">
-    <div class="grid" id="extensions-grid"></div>
-</section>
-
-<footer>
-    <p>&copy; 2026 BananaWare. All rights reserved. All extensions are <strong>privacy-first</strong> with <strong>no data collection</strong>.</p>
-    <p style="margin-top:0.5rem;">Pro upgrades available for &euro;1.49 one-time &mdash; <a href="https://chromewebstore.google.com/search/BananaWare">Browse on Chrome Web Store</a></p>
-</footer>
-
-<script>
-const extensions = [
-    { name: "Bookmark Sorter", tagline: "Sort & organize Chrome bookmarks", icon: "\uD83D\uDD16", slug: "bookmark-sorter" },
-    { name: "Broken Image Finder", tagline: "Find broken images on any page", icon: "\uD83D\uDDBC\uFE0F", slug: "broken-image-finder" },
-    { name: "Color Contrast Checker", tagline: "WCAG accessibility compliance", icon: "\u2705", slug: "color-contrast-checker" },
-    { name: "ColorPick Pro", tagline: "Extract colors from any webpage", icon: "\uD83C\uDFA8", slug: "colorpick-pro" },
-    { name: "Dark Mode Everywhere", tagline: "Dark mode on any website", icon: "\uD83C\uDF19", slug: "dark-mode-everywhere" },
-    { name: "Fake Data Generator", tagline: "Realistic test data in one click", icon: "\uD83C\uDFB2", slug: "fake-data-generator" },
-    { name: "Focus Guard", tagline: "Pomodoro timer + site blocker", icon: "\uD83C\uDFAF", slug: "focus-guard" },
-    { name: "FontDetective", tagline: "Identify fonts on any website", icon: "\uD83D\uDD0D", slug: "fontdetective" },
-    { name: "Form Filler Pro", tagline: "Fill forms with test data instantly", icon: "\uD83D\uDCDD", slug: "form-filler-pro" },
-    { name: "InvoiceBlitz", tagline: "Professional invoices in seconds", icon: "\uD83D\uDCB0", slug: "invoiceblitz" },
-    { name: "Link Checker Pro", tagline: "Find broken links on any page", icon: "\uD83D\uDD17", slug: "link-checker-pro" },
-    { name: "Markdown Clipper", tagline: "Webpage to Markdown in one click", icon: "\u2702\uFE0F", slug: "markdown-clipper" },
-    { name: "PageWatch", tagline: "Monitor webpages for changes", icon: "\uD83D\uDC41\uFE0F", slug: "pagewatch" },
-    { name: "Password Strength Meter", tagline: "Real-time password strength analysis", icon: "\uD83D\uDD12", slug: "password-strength-meter" },
-    { name: "QR Code Generator Pro", tagline: "QR codes from any URL instantly", icon: "\uD83D\uDCF1", slug: "qr-code-generator-pro" },
-    { name: "Reading List Pro", tagline: "Save articles to read later", icon: "\uD83D\uDCDA", slug: "reading-list-pro" },
-    { name: "Redirect Tracker Pro", tagline: "Trace URL redirect chains", icon: "\u21AA\uFE0F", slug: "redirect-tracker-pro" },
-    { name: "Regex Tester Pro", tagline: "Test regex patterns in real time", icon: "\u2699\uFE0F", slug: "regex-tester-pro" },
-    { name: "Tab Hero", tagline: "Advanced tab manager for power users", icon: "\uD83E\uDDB8", slug: "tab-hero" },
-    { name: "Video Speed Pro", tagline: "Control video playback speed", icon: "\u25B6\uFE0F", slug: "video-speed-pro" }
-];
-
-const grid = document.getElementById("extensions-grid");
-extensions.forEach(function(ext) {
-    const cwsUrl = "https://chromewebstore.google.com/search/" + encodeURIComponent(ext.name);
-    const landingUrl = "https://luispcfialho.github.io/chrome-ext-privacy-policies/landing/" + ext.slug + "/";
-    const card = document.createElement("div");
-    card.className = "card";
-    card.innerHTML = '<div class="card-icon">' + ext.icon + '</div>' +
-        '<h3>' + ext.name + '</h3>' +
-        '<p>' + ext.tagline + '</p>' +
-        '<div class="card-links">' +
-        '<a href="' + cwsUrl + '" target="_blank" rel="noopener" class="card-link card-link--cws">Chrome Web Store</a>' +
-        '<a href="' + landingUrl + '" class="card-link card-link--landing">Learn More</a>' +
-        '</div>';
-    grid.appendChild(card);
-});
-</script>
-
+  </div>
+  <div class="grid">
+    <div class="card">
+      <div class="card-icon">F</div>
+      <h3>Fake Data Generator</h3>
+      <p>Generate realistic test data</p>
+      <div class="card-links">
+        <a href="https://chromewebstore.google.com/detail/fake-data-generator/ljdlahhdjnmkckmnelgedlmddohalblg" target="_blank" class="btn-cws">Install Free</a>
+        <a href="https://luispcfialho.github.io/chrome-ext-privacy-policies/landing/fake-data-generator/" class="btn-landing">Learn More</a>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-icon">B</div>
+      <h3>Bookmark Sorter</h3>
+      <p>Sort & organize bookmarks</p>
+      <div class="card-links">
+        <a href="https://chromewebstore.google.com/detail/bookmark-sorter/lnnhhejpmjhmgfijiepnkbeicakdkbah" target="_blank" class="btn-cws">Install Free</a>
+        <a href="https://luispcfialho.github.io/chrome-ext-privacy-policies/landing/bookmark-sorter/" class="btn-landing">Learn More</a>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-icon">L</div>
+      <h3>Link Checker Pro</h3>
+      <p>Find broken links instantly</p>
+      <div class="card-links">
+        <a href="https://chromewebstore.google.com/detail/link-checker/pooacohjhcfikdjnpfcbpnnbjjidihjn" target="_blank" class="btn-cws">Install Free</a>
+        <a href="https://luispcfialho.github.io/chrome-ext-privacy-policies/landing/link-checker/" class="btn-landing">Learn More</a>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-icon">M</div>
+      <h3>Markdown Clipper</h3>
+      <p>Webpage to Markdown</p>
+      <div class="card-links">
+        <a href="https://chromewebstore.google.com/detail/markdown-clipper/hmfhkbhajhojnbmapggllbmmmhmimnam" target="_blank" class="btn-cws">Install Free</a>
+        <a href="https://luispcfialho.github.io/chrome-ext-privacy-policies/landing/markdown-clipper/" class="btn-landing">Learn More</a>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-icon">F</div>
+      <h3>FontDetective</h3>
+      <p>Identify any font</p>
+      <div class="card-links">
+        <a href="https://chromewebstore.google.com/detail/fontdetective/nbdekmoffgkfalenednedghmbdbilieg" target="_blank" class="btn-cws">Install Free</a>
+        <a href="https://luispcfialho.github.io/chrome-ext-privacy-policies/landing/font-detective/" class="btn-landing">Learn More</a>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-icon">R</div>
+      <h3>Regex Tester Pro</h3>
+      <p>Test regex in real time</p>
+      <div class="card-links">
+        <a href="https://chromewebstore.google.com/detail/regex-tester/loobkedjnfidpchkeoakimcdbipjankb" target="_blank" class="btn-cws">Install Free</a>
+        <a href="https://luispcfialho.github.io/chrome-ext-privacy-policies/landing/regex-tester/" class="btn-landing">Learn More</a>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-icon">Q</div>
+      <h3>Quick Invoice</h3>
+      <p>Fast freelancer invoicing</p>
+      <div class="card-links">
+        <a href="https://chromewebstore.google.com/detail/quick-invoice/pmcaccghogkdgempgheadolpnofldleg" target="_blank" class="btn-cws">Install Free</a>
+        <a href="https://luispcfialho.github.io/chrome-ext-privacy-policies/landing/invoice-ninja-free/" class="btn-landing">Learn More</a>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-icon">B</div>
+      <h3>Broken Image Finder</h3>
+      <p>Find broken images</p>
+      <div class="card-links">
+        <a href="https://chromewebstore.google.com/detail/broken-image-finder/kakmpgjpjmglbficcfpigpbgclpmlphb" target="_blank" class="btn-cws">Install Free</a>
+        <a href="https://luispcfialho.github.io/chrome-ext-privacy-policies/landing/broken-image-finder/" class="btn-landing">Learn More</a>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-icon">Q</div>
+      <h3>QR Code Generator Pro</h3>
+      <p>QR codes from any URL</p>
+      <div class="card-links">
+        <a href="https://chromewebstore.google.com/detail/qr-code-generator/mpdcbgdikhbnklbknbhapbifcmfccdfl" target="_blank" class="btn-cws">Install Free</a>
+        <a href="https://luispcfialho.github.io/chrome-ext-privacy-policies/landing/qr-code-generator/" class="btn-landing">Learn More</a>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-icon">I</div>
+      <h3>InvoiceBlitz</h3>
+      <p>Professional invoices in seconds</p>
+      <div class="card-links">
+        <a href="https://chromewebstore.google.com/detail/invoiceblitz/knabkfddpgblalnonccoomfncnhjgaga" target="_blank" class="btn-cws">Install Free</a>
+        <a href="https://luispcfialho.github.io/chrome-ext-privacy-policies/landing/invoice-blitz/" class="btn-landing">Learn More</a>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-icon">C</div>
+      <h3>ColorPick Pro</h3>
+      <p>Extract colors from any page</p>
+      <div class="card-links">
+        <a href="https://chromewebstore.google.com/detail/colorpick-pro/ebpckhhhkjkkifmndedbnhfejcfmhcap" target="_blank" class="btn-cws">Install Free</a>
+        <a href="https://luispcfialho.github.io/chrome-ext-privacy-policies/landing/colorpick-pro/" class="btn-landing">Learn More</a>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-icon">F</div>
+      <h3>Form Filler Pro</h3>
+      <p>Fill forms with test data</p>
+      <div class="card-links">
+        <a href="https://chromewebstore.google.com/detail/form-filler/lndgpljdkpjkgmlpmelmhneaphplgfeg" target="_blank" class="btn-cws">Install Free</a>
+        <a href="https://luispcfialho.github.io/chrome-ext-privacy-policies/landing/form-filler/" class="btn-landing">Learn More</a>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-icon">C</div>
+      <h3>Color Contrast Checker</h3>
+      <p>WCAG accessibility</p>
+      <div class="card-links">
+        <a href="https://chromewebstore.google.com/detail/color-contrast/pnfhgpeindpokkoipfldkhfpbkdebiel" target="_blank" class="btn-cws">Install Free</a>
+        <a href="https://luispcfialho.github.io/chrome-ext-privacy-policies/landing/color-contrast/" class="btn-landing">Learn More</a>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-icon">T</div>
+      <h3>Tab Hero</h3>
+      <p>Advanced tab manager</p>
+      <div class="card-links">
+        <a href="https://chromewebstore.google.com/detail/tab-hero/jpemlnhcejoblgimnmolfdealogjbohd" target="_blank" class="btn-cws">Install Free</a>
+        <a href="https://luispcfialho.github.io/chrome-ext-privacy-policies/landing/tab-hero/" class="btn-landing">Learn More</a>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-icon">P</div>
+      <h3>PageWatch</h3>
+      <p>Monitor page changes</p>
+      <div class="card-links">
+        <a href="https://chromewebstore.google.com/detail/pagewatch/gcanbnahpjjaffiaaldolficcfdiofdp" target="_blank" class="btn-cws">Install Free</a>
+        <a href="https://luispcfialho.github.io/chrome-ext-privacy-policies/landing/page-watch/" class="btn-landing">Learn More</a>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-icon">D</div>
+      <h3>Dark Mode Everywhere</h3>
+      <p>Dark mode on any site</p>
+      <div class="card-links">
+        <a href="https://chromewebstore.google.com/detail/dark-mode-everywhere/agkkjcefkmilnbcbcoflahbiogoblbhj" target="_blank" class="btn-cws">Install Free</a>
+        <a href="https://luispcfialho.github.io/chrome-ext-privacy-policies/landing/dark-mode-everywhere/" class="btn-landing">Learn More</a>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-icon">F</div>
+      <h3>Focus Guard</h3>
+      <p>Pomodoro + site blocker</p>
+      <div class="card-links">
+        <a href="https://chromewebstore.google.com/detail/focus-guard/gmcgmbcbbkalicgbmmblikcfkbnbofca" target="_blank" class="btn-cws">Install Free</a>
+        <a href="https://luispcfialho.github.io/chrome-ext-privacy-policies/landing/focus-guard/" class="btn-landing">Learn More</a>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-icon">R</div>
+      <h3>Redirect Tracker Pro</h3>
+      <p>Trace URL redirects</p>
+      <div class="card-links">
+        <a href="https://chromewebstore.google.com/detail/redirect-tracker/jdgbildamncannabifnebljonijnnnki" target="_blank" class="btn-cws">Install Free</a>
+        <a href="https://luispcfialho.github.io/chrome-ext-privacy-policies/landing/redirect-tracker/" class="btn-landing">Learn More</a>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-icon">R</div>
+      <h3>Reading List Pro</h3>
+      <p>Save articles for later</p>
+      <div class="card-links">
+        <a href="https://chromewebstore.google.com/detail/reading-list/pkciggngkhicipkomdmmmiokmkpoppbi" target="_blank" class="btn-cws">Install Free</a>
+        <a href="https://luispcfialho.github.io/chrome-ext-privacy-policies/landing/reading-list/" class="btn-landing">Learn More</a>
+      </div>
+    </div>
+  </div>
+  <div class="blog-section">
+    <h2>From Our Blog</h2>
+    <div class="blog-links">
+      <a href="/chrome-ext-privacy-policies/blog/top-chrome-extensions-developers-2026.html">Top 10 Extensions for Developers</a>
+      <a href="/chrome-ext-privacy-policies/blog/best-free-productivity-chrome-extensions.html">Best Free Productivity Extensions</a>
+      <a href="/chrome-ext-privacy-policies/blog/dark-mode-chrome-how-to-guide.html">Dark Mode Guide</a>
+      <a href="/chrome-ext-privacy-policies/blog/how-to-check-website-accessibility.html">WCAG Accessibility Guide</a>
+    </div>
+  </div>
+  <div class="footer">
+    <p>&copy; 2026 BananaWare. All extensions are privacy-first.</p>
+    <p style="margin-top:8px"><a href="/chrome-ext-privacy-policies/blog/">Blog</a></p>
+  </div>
 </body>
 </html>

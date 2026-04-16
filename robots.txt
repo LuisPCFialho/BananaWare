@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://luispcfialho.github.io/chrome-ext-privacy-policies/sitemap.xml

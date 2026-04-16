@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Check Your Website's Color Contrast for WCAG Compliance | BananaWare Blog</title>
+    <meta name="description" content="Learn how to check color contrast ratios for WCAG AA and AAA compliance. Free tool and step-by-step guide to making your website accessible.">
+    <meta name="keywords" content="WCAG compliance, color contrast checker, web accessibility, WCAG AA, WCAG AAA, contrast ratio, accessible website, color accessibility">
+    <meta name="author" content="BananaWare">
+    <meta property="og:title" content="How to Check Your Website's Color Contrast for WCAG Compliance">
+    <meta property="og:description" content="A practical guide to checking color contrast ratios for WCAG AA and AAA compliance using a free Chrome extension.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://luispcfialho.github.io/chrome-ext-privacy-policies/blog/how-to-check-website-accessibility.html">
+    <meta property="article:published_time" content="2026-04-06">
+    <meta property="article:author" content="BananaWare">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="How to Check Color Contrast for WCAG Compliance">
+    <meta name="twitter:description" content="Free tool and guide for checking WCAG color contrast ratios.">
+    <link rel="canonical" href="https://luispcfialho.github.io/chrome-ext-privacy-policies/blog/how-to-check-website-accessibility.html">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        :root {
+            --purple: #6C5CE7;
+            --purple-light: #a29bfe;
+            --bg: #f8f9fa;
+            --card-bg: #ffffff;
+            --text: #2d3436;
+            --text-muted: #636e72;
+            --border: #e0e0e0;
+        }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.8;
+            min-height: 100vh;
+        }
+        header {
+            background: linear-gradient(135deg, var(--purple) 0%, var(--purple-light) 100%);
+            padding: 1.5rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 20px rgba(108, 92, 231, 0.3);
+        }
+        .header-inner {
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+            color: #fff;
+        }
+        .logo-icon {
+            width: 36px;
+            height: 36px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+        .logo-text { font-size: 1.3rem; font-weight: 800; color: #fff; }
+        .nav-links { display: flex; gap: 1.5rem; }
+        .nav-links a {
+            color: rgba(255,255,255,0.9);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+        .nav-links a:hover { color: #fff; }
+        article {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 3rem 2rem 4rem;
+        }
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            color: var(--purple);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            margin-bottom: 2rem;
+        }
+        .back-link:hover { text-decoration: underline; }
+        .article-meta {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: var(--text);
+            margin-bottom: 1.5rem;
+            line-height: 1.3;
+        }
+        h2 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--purple);
+            margin: 2.5rem 0 0.75rem;
+        }
+        p { margin-bottom: 1.2rem; }
+        a { color: var(--purple); }
+        a:hover { text-decoration: underline; }
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            background: var(--card-bg);
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+        }
+        .comparison-table th {
+            background: var(--purple);
+            color: #fff;
+            padding: 0.9rem 1.25rem;
+            text-align: left;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        .comparison-table td {
+            padding: 0.9rem 1.25rem;
+            border-bottom: 1px solid var(--border);
+            font-size: 0.92rem;
+        }
+        .comparison-table tr:last-child td { border-bottom: none; }
+        .step-list {
+            list-style: none;
+            counter-reset: steps;
+            margin: 1.5rem 0;
+        }
+        .step-list li {
+            counter-increment: steps;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 1.25rem 1.5rem 1.25rem 4rem;
+            margin-bottom: 1rem;
+            position: relative;
+        }
+        .step-list li::before {
+            content: counter(steps);
+            position: absolute;
+            left: 1.25rem;
+            top: 1.25rem;
+            width: 2rem;
+            height: 2rem;
+            background: var(--purple);
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+        .step-list li strong {
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+        .example-box {
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 1.5rem 0;
+        }
+        .example-pass {
+            background: #2d3436;
+            color: #fff;
+            padding: 1.25rem 1.5rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+        .example-fail {
+            background: #2d3436;
+            color: #95a5a6;
+            padding: 1.25rem 1.5rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+        .example-label {
+            padding: 0.5rem 1.5rem;
+            font-size: 0.82rem;
+            font-weight: 600;
+            background: var(--card-bg);
+        }
+        .example-label.pass { color: #27ae60; }
+        .example-label.fail { color: #e74c3c; }
+        .cta-box {
+            background: linear-gradient(135deg, var(--purple) 0%, var(--purple-light) 100%);
+            color: #fff;
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            margin: 3rem 0 1rem;
+        }
+        .cta-box h3 { font-size: 1.3rem; margin-bottom: 0.5rem; }
+        .cta-box p { margin-bottom: 1rem; opacity: 0.9; }
+        .cta-btn {
+            display: inline-block;
+            background: #fff;
+            color: var(--purple);
+            font-weight: 700;
+            padding: 0.75rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: transform 0.2s;
+        }
+        .cta-btn:hover { transform: scale(1.05); text-decoration: none; }
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            border-top: 1px solid var(--border);
+        }
+        footer a { color: var(--purple); text-decoration: none; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-inner">
+            <a href="https://luispcfialho.github.io/chrome-ext-privacy-policies/" class="logo">
+                <div class="logo-icon">&#127820;</div>
+                <span class="logo-text">BananaWare</span>
+            </a>
+            <nav class="nav-links">
+                <a href="index.html">Blog</a>
+                <a href="https://luispcfialho.github.io/chrome-ext-privacy-policies/">Extensions</a>
+            </nav>
+        </div>
+    </header>
+
+    <article>
+        <a href="index.html" class="back-link">&larr; Back to Blog</a>
+        <div class="article-meta">April 6, 2026 &middot; 3 min read</div>
+        <h1>How to Check Your Website's Color Contrast for WCAG Compliance</h1>
+
+        <p>Color contrast is one of the most common accessibility failures on the web. According to the WebAIM Million report, low contrast text is found on over 80% of home pages. The good news: it is also one of the easiest issues to detect and fix.</p>
+
+        <p>This guide explains what WCAG contrast requirements actually mean, and shows you how to check your site's compliance in seconds using a free Chrome extension.</p>
+
+        <h2>What Is WCAG Color Contrast?</h2>
+        <p>The Web Content Accessibility Guidelines (WCAG) define minimum contrast ratios between text and its background to ensure readability for people with visual impairments. The ratio is measured on a scale from 1:1 (no contrast -- same color) to 21:1 (maximum contrast -- black on white).</p>
+
+        <p>WCAG defines two conformance levels for contrast:</p>
+
+        <table class="comparison-table">
+            <thead>
+                <tr>
+                    <th>Level</th>
+                    <th>Normal Text (under 18pt)</th>
+                    <th>Large Text (18pt+ or 14pt bold)</th>
+                    <th>What It Means</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>AA</strong></td>
+                    <td>4.5 : 1</td>
+                    <td>3 : 1</td>
+                    <td>Minimum acceptable contrast. Required by most accessibility laws worldwide, including the EU's European Accessibility Act and the US ADA.</td>
+                </tr>
+                <tr>
+                    <td><strong>AAA</strong></td>
+                    <td>7 : 1</td>
+                    <td>4.5 : 1</td>
+                    <td>Enhanced contrast for optimal readability. Recommended for long-form content, body text, and sites serving elderly or visually impaired users.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p><strong>AA is the standard most teams target.</strong> It provides good readability for the vast majority of users. AAA is a stretch goal that is worth pursuing for body text and critical UI elements.</p>
+
+        <h2>Common Contrast Mistakes</h2>
+
+        <div class="example-box">
+            <div class="example-pass">This white text on dark gray passes WCAG AA (ratio: 12.6:1)</div>
+            <div class="example-label pass">PASS - AA and AAA</div>
+        </div>
+        <div class="example-box">
+            <div class="example-fail">This gray text on dark gray fails WCAG AA (ratio: 2.7:1)</div>
+            <div class="example-label fail">FAIL - Does not meet AA</div>
+        </div>
+
+        <p>The most common violations include light gray text on white backgrounds, colored text on colored backgrounds (especially in buttons and badges), and placeholder text in form inputs that is nearly invisible.</p>
+
+        <h2>How to Check Contrast with Color Contrast Checker</h2>
+
+        <ol class="step-list">
+            <li>
+                <strong>Install the extension</strong>
+                Go to the <a href="https://chromewebstore.google.com/search/Color%20Contrast%20Checker%20BananaWare" target="_blank" rel="noopener">Chrome Web Store</a> and install Color Contrast Checker by BananaWare. It is free and requires no account.
+            </li>
+            <li>
+                <strong>Navigate to your website</strong>
+                Open the page you want to audit. It works on localhost, staging, and production URLs.
+            </li>
+            <li>
+                <strong>Activate the checker</strong>
+                Click the Color Contrast Checker icon in your toolbar. The extension will overlay a panel on the page showing a color picker for foreground and background colors.
+            </li>
+            <li>
+                <strong>Pick your colors</strong>
+                Use the eyedropper tool to select the text color (foreground) and its background color. The extension instantly calculates the contrast ratio and shows whether it passes WCAG AA, AAA, or neither -- for both normal and large text sizes.
+            </li>
+            <li>
+                <strong>Fix and re-check</strong>
+                If a color pair fails, the extension suggests the closest color that would pass the target level. Adjust your CSS, refresh, and check again. Repeat until all critical text elements meet at least AA.
+            </li>
+        </ol>
+
+        <h2>What to Check First</h2>
+        <p>You do not need to audit every pixel on your site at once. Focus on the elements that matter most:</p>
+        <p><strong>Body text.</strong> This is where users spend the most time reading. Ensure all paragraph text meets at least AA (4.5:1 ratio). Aim for AAA (7:1) if possible.</p>
+        <p><strong>Navigation and links.</strong> Users need to clearly see and identify clickable elements. Check both default and hover states.</p>
+        <p><strong>Buttons and calls to action.</strong> If your primary CTA button has low contrast, users may miss it entirely. Check the button text against the button background color.</p>
+        <p><strong>Form labels and input text.</strong> Inaccessible forms mean lost conversions. Check label text, placeholder text, and the text users type into fields.</p>
+        <p><strong>Error messages.</strong> These are often displayed in red, which can have poor contrast against both white and dark backgrounds. Always verify.</p>
+
+        <h2>Making Accessibility a Habit</h2>
+        <p>The best approach is to check contrast during development, not after launch. Keep Color Contrast Checker installed and make it part of your code review process. Every time you adjust colors in CSS, take two seconds to verify the ratio. Over time, you will develop an intuitive sense for which color combinations work and which do not.</p>
+
+        <p>Accessibility is not a feature -- it is a responsibility. And contrast is the easiest place to start.</p>
+
+        <div class="cta-box">
+            <h3>Check Your Site's Contrast Now</h3>
+            <p>Install Color Contrast Checker free. No account, no data collected.</p>
+            <a href="https://chromewebstore.google.com/search/Color%20Contrast%20Checker%20BananaWare" target="_blank" rel="noopener" class="cta-btn">Install Free on Chrome</a>
+        </div>
+    </article>
+
+    <footer>
+        <p>&copy; 2026 <a href="https://luispcfialho.github.io/chrome-ext-privacy-policies/">BananaWare</a>. Privacy-first Chrome extensions.</p>
+    </footer>
+</body>
+</html>

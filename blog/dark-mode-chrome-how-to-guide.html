@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Enable Dark Mode on Any Website (Step-by-Step Guide) | BananaWare Blog</title>
+    <meta name="description" content="Learn how to enable dark mode on any website using Chrome. Step-by-step guide to reducing eye strain and saving battery with Dark Mode Everywhere.">
+    <meta name="keywords" content="dark mode chrome, dark mode any website, night mode browser, enable dark mode, dark theme chrome extension, reduce eye strain browser">
+    <meta name="author" content="BananaWare">
+    <meta property="og:title" content="How to Enable Dark Mode on Any Website (Step-by-Step Guide)">
+    <meta property="og:description" content="Enable dark mode on every website you visit. Step-by-step guide using a free Chrome extension.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://luispcfialho.github.io/chrome-ext-privacy-policies/blog/dark-mode-chrome-how-to-guide.html">
+    <meta property="article:published_time" content="2026-04-09">
+    <meta property="article:author" content="BananaWare">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="How to Enable Dark Mode on Any Website">
+    <meta name="twitter:description" content="Step-by-step guide to enabling dark mode everywhere in Chrome.">
+    <link rel="canonical" href="https://luispcfialho.github.io/chrome-ext-privacy-policies/blog/dark-mode-chrome-how-to-guide.html">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        :root {
+            --purple: #6C5CE7;
+            --purple-light: #a29bfe;
+            --bg: #f8f9fa;
+            --card-bg: #ffffff;
+            --text: #2d3436;
+            --text-muted: #636e72;
+            --border: #e0e0e0;
+        }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.8;
+            min-height: 100vh;
+        }
+        header {
+            background: linear-gradient(135deg, var(--purple) 0%, var(--purple-light) 100%);
+            padding: 1.5rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 20px rgba(108, 92, 231, 0.3);
+        }
+        .header-inner {
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+            color: #fff;
+        }
+        .logo-icon {
+            width: 36px;
+            height: 36px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+        .logo-text { font-size: 1.3rem; font-weight: 800; color: #fff; }
+        .nav-links { display: flex; gap: 1.5rem; }
+        .nav-links a {
+            color: rgba(255,255,255,0.9);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+        .nav-links a:hover { color: #fff; }
+        article {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 3rem 2rem 4rem;
+        }
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            color: var(--purple);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            margin-bottom: 2rem;
+        }
+        .back-link:hover { text-decoration: underline; }
+        .article-meta {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: var(--text);
+            margin-bottom: 1.5rem;
+            line-height: 1.3;
+        }
+        h2 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--purple);
+            margin: 2.5rem 0 0.75rem;
+        }
+        p { margin-bottom: 1.2rem; }
+        a { color: var(--purple); }
+        a:hover { text-decoration: underline; }
+        .step-list {
+            list-style: none;
+            counter-reset: steps;
+            margin: 1.5rem 0;
+        }
+        .step-list li {
+            counter-increment: steps;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 1.25rem 1.5rem 1.25rem 4rem;
+            margin-bottom: 1rem;
+            position: relative;
+        }
+        .step-list li::before {
+            content: counter(steps);
+            position: absolute;
+            left: 1.25rem;
+            top: 1.25rem;
+            width: 2rem;
+            height: 2rem;
+            background: var(--purple);
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+        .step-list li strong {
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+        .screenshot-desc {
+            background: #f0efff;
+            border: 1px dashed var(--purple-light);
+            border-radius: 8px;
+            padding: 0.75rem 1rem;
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            margin: 0.75rem 0;
+            font-style: italic;
+        }
+        .tip-box {
+            background: #fff8e1;
+            border-left: 4px solid #f9a825;
+            padding: 1rem 1.25rem;
+            border-radius: 0 8px 8px 0;
+            margin: 1.5rem 0;
+        }
+        .tip-box strong { color: #f57f17; }
+        .cta-box {
+            background: linear-gradient(135deg, var(--purple) 0%, var(--purple-light) 100%);
+            color: #fff;
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            margin: 3rem 0 1rem;
+        }
+        .cta-box h3 { font-size: 1.3rem; margin-bottom: 0.5rem; }
+        .cta-box p { margin-bottom: 1rem; opacity: 0.9; }
+        .cta-btn {
+            display: inline-block;
+            background: #fff;
+            color: var(--purple);
+            font-weight: 700;
+            padding: 0.75rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: transform 0.2s;
+        }
+        .cta-btn:hover { transform: scale(1.05); text-decoration: none; }
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            border-top: 1px solid var(--border);
+        }
+        footer a { color: var(--purple); text-decoration: none; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-inner">
+            <a href="https://luispcfialho.github.io/chrome-ext-privacy-policies/" class="logo">
+                <div class="logo-icon">&#127820;</div>
+                <span class="logo-text">BananaWare</span>
+            </a>
+            <nav class="nav-links">
+                <a href="index.html">Blog</a>
+                <a href="https://luispcfialho.github.io/chrome-ext-privacy-policies/">Extensions</a>
+            </nav>
+        </div>
+    </header>
+
+    <article>
+        <a href="index.html" class="back-link">&larr; Back to Blog</a>
+        <div class="article-meta">April 9, 2026 &middot; 3 min read</div>
+        <h1>How to Enable Dark Mode on Any Website (Step-by-Step Guide)</h1>
+
+        <p>Staring at a bright white screen for hours is hard on your eyes, especially when working late or in a dimly lit room. While many apps and operating systems now offer built-in dark mode, most websites still do not. The result: you switch to a dark OS theme, open Chrome, and get blasted by a white webpage.</p>
+
+        <p>The fix is simple. With the <a href="https://chromewebstore.google.com/search/Dark%20Mode%20Everywhere%20BananaWare" target="_blank" rel="noopener">Dark Mode Everywhere</a> extension, you can apply a dark theme to any website with a single click. Here is exactly how to set it up.</p>
+
+        <h2>Installation</h2>
+        <ol class="step-list">
+            <li>
+                <strong>Open the Chrome Web Store</strong>
+                Navigate to <a href="https://chromewebstore.google.com/search/Dark%20Mode%20Everywhere%20BananaWare" target="_blank" rel="noopener">Dark Mode Everywhere on the Chrome Web Store</a>. You can also search for "Dark Mode Everywhere BananaWare" directly in the store.
+                <div class="screenshot-desc">[Screenshot: Chrome Web Store listing showing the Dark Mode Everywhere extension with the blue "Add to Chrome" button on the right side of the page.]</div>
+            </li>
+            <li>
+                <strong>Click "Add to Chrome"</strong>
+                Click the blue "Add to Chrome" button. A confirmation dialog will appear listing the permissions the extension needs. Dark Mode Everywhere only requests permission to modify page appearance -- it does not read your data or track your browsing.
+                <div class="screenshot-desc">[Screenshot: Permission confirmation dialog showing "Add Dark Mode Everywhere?" with the required permissions listed and "Add extension" button.]</div>
+            </li>
+            <li>
+                <strong>Confirm the installation</strong>
+                Click "Add extension" in the confirmation dialog. You will see a small notification confirming the extension has been added, and the Dark Mode Everywhere icon will appear in your Chrome toolbar.
+            </li>
+        </ol>
+
+        <h2>Using Dark Mode Everywhere</h2>
+        <ol class="step-list">
+            <li>
+                <strong>Toggle dark mode on any page</strong>
+                Navigate to any website and click the Dark Mode Everywhere icon in your toolbar. The page will instantly switch to a dark color scheme. Click the icon again to toggle back to the original light theme.
+                <div class="screenshot-desc">[Screenshot: A Wikipedia article shown in dark mode -- dark gray background with light text, all images preserved normally, and the Dark Mode Everywhere icon highlighted in the toolbar.]</div>
+            </li>
+            <li>
+                <strong>Enable auto-dark mode (optional)</strong>
+                Right-click the toolbar icon and select "Options" to access settings. Turn on "Auto-enable dark mode" to automatically apply dark mode to every website you visit. You can add specific sites to an exclusion list if you prefer them in light mode.
+                <div class="screenshot-desc">[Screenshot: Dark Mode Everywhere settings panel showing the auto-enable toggle switched on, with a text area for excluded websites below it.]</div>
+            </li>
+            <li>
+                <strong>Adjust brightness and contrast</strong>
+                In the extension popup, use the brightness and contrast sliders to fine-tune the appearance. Some websites look better with slightly higher brightness. Your settings are remembered per site.
+                <div class="screenshot-desc">[Screenshot: Extension popup showing brightness slider at 90% and contrast slider at 100%, with a toggle switch for the current site.]</div>
+            </li>
+        </ol>
+
+        <div class="tip-box">
+            <strong>Tip:</strong> If images look inverted on some sites, open the extension settings and enable "Preserve images." This keeps photos and graphics in their original colors while darkening the rest of the page.
+        </div>
+
+        <h2>Why Use Dark Mode?</h2>
+        <p><strong>Reduced eye strain.</strong> Dark backgrounds with light text cause less eye fatigue during long reading or coding sessions, particularly in low-light environments.</p>
+        <p><strong>Better sleep quality.</strong> Bright screens suppress melatonin production. Using dark mode in the evening can help your body wind down naturally.</p>
+        <p><strong>Battery savings on OLED displays.</strong> If you use a laptop or monitor with an OLED or AMOLED panel, dark pixels use less power. Dark mode can meaningfully extend battery life on these devices.</p>
+        <p><strong>Less visual clutter.</strong> Many users find that dark themes make content easier to focus on by reducing the visual noise of bright backgrounds and colorful UI elements.</p>
+
+        <h2>Works Everywhere</h2>
+        <p>Dark Mode Everywhere is designed to handle even complex websites with nested frames, dynamic content, and custom CSS. It works on Google Docs, GitHub, Reddit, Wikipedia, news sites, forums, and virtually every other site you visit daily. If a site already has its own dark mode, the extension intelligently detects this and stays out of the way.</p>
+
+        <div class="cta-box">
+            <h3>Try Dark Mode Everywhere Free</h3>
+            <p>Install in seconds. No account required. No data collected.</p>
+            <a href="https://chromewebstore.google.com/search/Dark%20Mode%20Everywhere%20BananaWare" target="_blank" rel="noopener" class="cta-btn">Install Free on Chrome</a>
+        </div>
+    </article>
+
+    <footer>
+        <p>&copy; 2026 <a href="https://luispcfialho.github.io/chrome-ext-privacy-policies/">BananaWare</a>. Privacy-first Chrome extensions.</p>
+    </footer>
+</body>
+</html>

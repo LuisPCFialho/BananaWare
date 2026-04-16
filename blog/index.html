@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BananaWare Blog - Chrome Extension Tips, Guides & Tutorials</title>
+    <meta name="description" content="Discover the best Chrome extensions for developers, productivity, dark mode, and accessibility. Tips, tutorials, and guides from BananaWare.">
+    <meta name="keywords" content="chrome extensions blog, browser extensions tips, web development tools, productivity extensions, dark mode guide, accessibility tools">
+    <meta name="author" content="BananaWare">
+    <meta property="og:title" content="BananaWare Blog - Chrome Extension Tips, Guides & Tutorials">
+    <meta property="og:description" content="Discover the best Chrome extensions for developers, productivity, dark mode, and accessibility. Tips, tutorials, and guides from BananaWare.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://luispcfialho.github.io/chrome-ext-privacy-policies/blog/">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="BananaWare Blog - Chrome Extension Tips, Guides & Tutorials">
+    <meta name="twitter:description" content="Discover the best Chrome extensions for developers, productivity, dark mode, and accessibility.">
+    <link rel="canonical" href="https://luispcfialho.github.io/chrome-ext-privacy-policies/blog/">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        :root {
+            --purple: #6C5CE7;
+            --purple-light: #a29bfe;
+            --bg: #f8f9fa;
+            --card-bg: #ffffff;
+            --text: #2d3436;
+            --text-muted: #636e72;
+            --border: #e0e0e0;
+        }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            min-height: 100vh;
+        }
+        header {
+            background: linear-gradient(135deg, var(--purple) 0%, var(--purple-light) 100%);
+            padding: 1.5rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 20px rgba(108, 92, 231, 0.3);
+        }
+        .header-inner {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+            color: #fff;
+        }
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+        }
+        .logo-text {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: #fff;
+        }
+        .nav-links a {
+            color: rgba(255,255,255,0.9);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover { color: #fff; }
+        .hero {
+            text-align: center;
+            padding: 4rem 2rem 2rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .hero h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--purple);
+            margin-bottom: 0.75rem;
+        }
+        .hero p {
+            font-size: 1.15rem;
+            color: var(--text-muted);
+        }
+        .articles {
+            max-width: 1000px;
+            margin: 2rem auto 4rem;
+            padding: 0 2rem;
+            display: grid;
+            gap: 2rem;
+        }
+        .article-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 2rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+        .article-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(108, 92, 231, 0.12);
+            border-color: var(--purple-light);
+        }
+        .article-card .tag {
+            display: inline-block;
+            background: rgba(108, 92, 231, 0.1);
+            color: var(--purple);
+            font-size: 0.8rem;
+            font-weight: 600;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            margin-bottom: 0.75rem;
+        }
+        .article-card h2 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--text);
+        }
+        .article-card .excerpt {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
+        .article-card .meta {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            display: flex;
+            gap: 1.5rem;
+        }
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            border-top: 1px solid var(--border);
+        }
+        footer a { color: var(--purple); text-decoration: none; }
+        footer a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-inner">
+            <a href="https://luispcfialho.github.io/chrome-ext-privacy-policies/" class="logo">
+                <div class="logo-icon">&#127820;</div>
+                <span class="logo-text">BananaWare</span>
+            </a>
+            <nav class="nav-links">
+                <a href="https://luispcfialho.github.io/chrome-ext-privacy-policies/">Extensions</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <h1>BananaWare Blog</h1>
+        <p>Tips, tutorials, and guides to get the most out of your browser. From developer tools to accessibility and productivity hacks.</p>
+    </section>
+
+    <div class="articles">
+        <a href="top-chrome-extensions-developers-2026.html" class="article-card">
+            <span class="tag">Developer Tools</span>
+            <h2>Top 10 Chrome Extensions Every Developer Needs in 2026</h2>
+            <p class="excerpt">From debugging broken images to testing regex patterns live, these are the must-have browser extensions for modern web developers. All free to start.</p>
+            <div class="meta">
+                <span>April 15, 2026</span>
+                <span>5 min read</span>
+            </div>
+        </a>
+
+        <a href="best-free-productivity-chrome-extensions.html" class="article-card">
+            <span class="tag">Productivity</span>
+            <h2>Best Free Productivity Chrome Extensions (with Optional Pro Upgrades)</h2>
+            <p class="excerpt">Boost your daily workflow without spending a cent. These extensions help you focus, manage tabs, clip content, and more -- with optional Pro upgrades for just 1.49 EUR.</p>
+            <div class="meta">
+                <span>April 12, 2026</span>
+                <span>4 min read</span>
+            </div>
+        </a>
+
+        <a href="dark-mode-chrome-how-to-guide.html" class="article-card">
+            <span class="tag">Tutorial</span>
+            <h2>How to Enable Dark Mode on Any Website (Step-by-Step Guide)</h2>
+            <p class="excerpt">Tired of blinding white backgrounds? Learn how to enable dark mode on every website you visit using a simple Chrome extension. Your eyes will thank you.</p>
+            <div class="meta">
+                <span>April 9, 2026</span>
+                <span>3 min read</span>
+            </div>
+        </a>
+
+        <a href="how-to-check-website-accessibility.html" class="article-card">
+            <span class="tag">Accessibility</span>
+            <h2>How to Check Your Website's Color Contrast for WCAG Compliance</h2>
+            <p class="excerpt">Ensure your website meets WCAG AA and AAA standards with a free color contrast checker. A practical guide to making your site accessible to everyone.</p>
+            <div class="meta">
+                <span>April 6, 2026</span>
+                <span>3 min read</span>
+            </div>
+        </a>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 <a href="https://luispcfialho.github.io/chrome-ext-privacy-policies/">BananaWare</a>. Privacy-first Chrome extensions.</p>
+    </footer>
+</body>
+</html>

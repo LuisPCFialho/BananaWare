@@ -1,39 +1,352 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Privacy Policies — Chrome Extensions by LuisPCFialho</title>
-<style>
-  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; max-width: 700px; margin: 40px auto; padding: 0 20px; color: #1e293b; line-height: 1.6; }
-  h1 { color: #4f46e5; } a { color: #4f46e5; }
-  li { margin-bottom: 8px; }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BananaWare - Chrome Extensions Publisher</title>
+    <meta name="description" content="BananaWare publishes 20+ privacy-first Chrome extensions. No data collection. Pro upgrades for just EUR 1.49 one-time.">
+    <meta name="keywords" content="Chrome extensions, browser tools, productivity, privacy-first, BananaWare, dark mode, bookmarks, QR code, tab manager, regex tester">
+    <meta name="author" content="BananaWare">
+    <meta property="og:title" content="BananaWare - Chrome Extensions Publisher">
+    <meta property="og:description" content="20+ privacy-first Chrome extensions. No data collection. Pro upgrades for just EUR 1.49 one-time.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://luispcfialho.github.io/chrome-ext-privacy-policies/index.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="BananaWare - Chrome Extensions Publisher">
+    <meta name="twitter:description" content="20+ privacy-first Chrome extensions. No data collection. Pro upgrades for just EUR 1.49 one-time.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --purple-start: #6C5CE7;
+            --purple-end: #a29bfe;
+            --bg: #0f0f13;
+            --card-bg: #1a1a24;
+            --card-border: #2a2a3a;
+            --text: #e8e8f0;
+            --text-muted: #9090a8;
+            --accent: #a29bfe;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        header {
+            background: linear-gradient(135deg, #18182a 0%, #1e1e35 100%);
+            border-bottom: 1px solid var(--card-border);
+            padding: 1.5rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(12px);
+        }
+
+        .header-inner {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--purple-start), var(--purple-end));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+        }
+
+        .logo-text {
+            font-size: 1.4rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--purple-start), var(--purple-end));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.02em;
+        }
+
+        .header-badge {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            background: rgba(162, 155, 254, 0.1);
+            padding: 0.35rem 0.75rem;
+            border-radius: 20px;
+            border: 1px solid rgba(162, 155, 254, 0.2);
+        }
+
+        .hero {
+            text-align: center;
+            padding: 5rem 2rem 3rem;
+            background: radial-gradient(ellipse at 50% 0%, rgba(108, 92, 231, 0.15) 0%, transparent 60%);
+        }
+
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 3.2rem);
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            margin-bottom: 1rem;
+        }
+
+        .hero h1 span {
+            background: linear-gradient(135deg, var(--purple-start), var(--purple-end));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        .badges {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.5rem 1rem;
+            border-radius: 24px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .badge--privacy {
+            background: rgba(0, 206, 158, 0.12);
+            color: #00ce9e;
+            border: 1px solid rgba(0, 206, 158, 0.25);
+        }
+
+        .badge--pro {
+            background: rgba(162, 155, 254, 0.12);
+            color: var(--accent);
+            border: 1px solid rgba(162, 155, 254, 0.25);
+        }
+
+        .badge--count {
+            background: rgba(253, 203, 110, 0.12);
+            color: #fdcb6e;
+            border: 1px solid rgba(253, 203, 110, 0.25);
+        }
+
+        .grid-section {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 2rem 2rem 4rem;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.25rem;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 14px;
+            padding: 1.5rem;
+            transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(162, 155, 254, 0.4);
+            box-shadow: 0 8px 32px rgba(108, 92, 231, 0.15);
+        }
+
+        .card-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, var(--purple-start), var(--purple-end));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            flex-shrink: 0;
+        }
+
+        .card h3 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            margin-bottom: 0.35rem;
+            letter-spacing: -0.01em;
+        }
+
+        .card p {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            margin-bottom: 1.25rem;
+            flex-grow: 1;
+        }
+
+        .card-links {
+            display: flex;
+            gap: 0.6rem;
+        }
+
+        .card-link {
+            flex: 1;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.3rem;
+            padding: 0.55rem 0.75rem;
+            border-radius: 8px;
+            font-size: 0.78rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: background 0.2s ease, transform 0.1s ease;
+        }
+
+        .card-link:active { transform: scale(0.97); }
+
+        .card-link--cws {
+            background: rgba(162, 155, 254, 0.15);
+            color: var(--accent);
+            border: 1px solid rgba(162, 155, 254, 0.25);
+        }
+
+        .card-link--cws:hover {
+            background: rgba(162, 155, 254, 0.25);
+        }
+
+        .card-link--landing {
+            background: rgba(255, 255, 255, 0.06);
+            color: var(--text);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .card-link--landing:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        footer {
+            text-align: center;
+            padding: 2.5rem 2rem;
+            border-top: 1px solid var(--card-border);
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        footer a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        footer a:hover { text-decoration: underline; }
+
+        @media (max-width: 640px) {
+            header { padding: 1rem; }
+            .hero { padding: 3rem 1.25rem 2rem; }
+            .grid-section { padding: 1.5rem 1.25rem 3rem; }
+            .grid { grid-template-columns: 1fr; }
+            .header-badge { display: none; }
+        }
+    </style>
 </head>
 <body>
-<h1>Chrome Extensions — Privacy Policies</h1>
-<p>Select your extension to view its privacy policy:</p>
-<ul>
-  <li><a href="meeting-meter.html">MeetingMeter</a></li>
-  <li><a href="contract-guard.html">ContractGuard</a></li>
-  <li><a href="page-watch.html">PageWatch</a></li>
-  <li><a href="table-blitz.html">TableBlitz</a></li>
-  <li><a href="career-tracker.html">CareerTracker</a></li>
-  <li><a href="colorpick-pro.html">ColorPick Pro</a></li>
-  <li><a href="font-detective.html">FontDetective</a></li>
-  <li><a href="invoice-blitz.html">InvoiceBlitz</a></li>
-  <li><a href="linkedin-crm.html">LinkedInCRM</a></li>
-  <li><a href="read-smart.html">ReadSmart</a></li>
-  <li><a href="price-drop-alert.html">Price Drop Alert</a></li>
-  <li><a href="tab-hero.html">Tab Hero</a></li>
-  <li><a href="screenshot-pro.html">Screenshot Pro</a></li>
-  <li><a href="timezone-pal.html">TimeZone Pal</a></li>
-  <li><a href="focus-guard.html">Focus Guard</a></li>
-  <li><a href="seo-inspector.html">SEO Inspector</a></li>
-  <li><a href="snippet-box.html">Snippet Box</a></li>
-  <li><a href="dark-mode-everywhere.html">Dark Mode Everywhere</a></li>
-  <li><a href="grammar-ninja.html">Grammar Ninja</a></li>
-  <li><a href="web-annotator.html">Web Annotator</a></li>
-</ul>
+
+<header>
+    <div class="header-inner">
+        <a href="#" class="logo">
+            <div class="logo-icon">&#127820;</div>
+            <span class="logo-text">BananaWare</span>
+        </a>
+        <span class="header-badge">Chrome Extension Publisher</span>
+    </div>
+</header>
+
+<section class="hero">
+    <h1>Browser tools that <span>just work</span></h1>
+    <p>20 lightweight Chrome extensions built with privacy at the core. No data collection, no tracking, no accounts required.</p>
+    <div class="badges">
+        <span class="badge badge--privacy">&#128274; Privacy-first &mdash; zero data collection</span>
+        <span class="badge badge--pro">&#11088; Pro upgrade &euro;1.49 one-time</span>
+        <span class="badge badge--count">&#128230; 20 published extensions</span>
+    </div>
+</section>
+
+<section class="grid-section">
+    <div class="grid" id="extensions-grid"></div>
+</section>
+
+<footer>
+    <p>&copy; 2026 BananaWare. All rights reserved. All extensions are <strong>privacy-first</strong> with <strong>no data collection</strong>.</p>
+    <p style="margin-top:0.5rem;">Pro upgrades available for &euro;1.49 one-time &mdash; <a href="https://chromewebstore.google.com/search/BananaWare">Browse on Chrome Web Store</a></p>
+</footer>
+
+<script>
+const extensions = [
+    { name: "Bookmark Sorter", tagline: "Sort & organize Chrome bookmarks", icon: "\uD83D\uDD16", slug: "bookmark-sorter" },
+    { name: "Broken Image Finder", tagline: "Find broken images on any page", icon: "\uD83D\uDDBC\uFE0F", slug: "broken-image-finder" },
+    { name: "Color Contrast Checker", tagline: "WCAG accessibility compliance", icon: "\u2705", slug: "color-contrast-checker" },
+    { name: "ColorPick Pro", tagline: "Extract colors from any webpage", icon: "\uD83C\uDFA8", slug: "colorpick-pro" },
+    { name: "Dark Mode Everywhere", tagline: "Dark mode on any website", icon: "\uD83C\uDF19", slug: "dark-mode-everywhere" },
+    { name: "Fake Data Generator", tagline: "Realistic test data in one click", icon: "\uD83C\uDFB2", slug: "fake-data-generator" },
+    { name: "Focus Guard", tagline: "Pomodoro timer + site blocker", icon: "\uD83C\uDFAF", slug: "focus-guard" },
+    { name: "FontDetective", tagline: "Identify fonts on any website", icon: "\uD83D\uDD0D", slug: "fontdetective" },
+    { name: "Form Filler Pro", tagline: "Fill forms with test data instantly", icon: "\uD83D\uDCDD", slug: "form-filler-pro" },
+    { name: "InvoiceBlitz", tagline: "Professional invoices in seconds", icon: "\uD83D\uDCB0", slug: "invoiceblitz" },
+    { name: "Link Checker Pro", tagline: "Find broken links on any page", icon: "\uD83D\uDD17", slug: "link-checker-pro" },
+    { name: "Markdown Clipper", tagline: "Webpage to Markdown in one click", icon: "\u2702\uFE0F", slug: "markdown-clipper" },
+    { name: "PageWatch", tagline: "Monitor webpages for changes", icon: "\uD83D\uDC41\uFE0F", slug: "pagewatch" },
+    { name: "Password Strength Meter", tagline: "Real-time password strength analysis", icon: "\uD83D\uDD12", slug: "password-strength-meter" },
+    { name: "QR Code Generator Pro", tagline: "QR codes from any URL instantly", icon: "\uD83D\uDCF1", slug: "qr-code-generator-pro" },
+    { name: "Reading List Pro", tagline: "Save articles to read later", icon: "\uD83D\uDCDA", slug: "reading-list-pro" },
+    { name: "Redirect Tracker Pro", tagline: "Trace URL redirect chains", icon: "\u21AA\uFE0F", slug: "redirect-tracker-pro" },
+    { name: "Regex Tester Pro", tagline: "Test regex patterns in real time", icon: "\u2699\uFE0F", slug: "regex-tester-pro" },
+    { name: "Tab Hero", tagline: "Advanced tab manager for power users", icon: "\uD83E\uDDB8", slug: "tab-hero" },
+    { name: "Video Speed Pro", tagline: "Control video playback speed", icon: "\u25B6\uFE0F", slug: "video-speed-pro" }
+];
+
+const grid = document.getElementById("extensions-grid");
+extensions.forEach(function(ext) {
+    const cwsUrl = "https://chromewebstore.google.com/search/" + encodeURIComponent(ext.name);
+    const landingUrl = "https://luispcfialho.github.io/chrome-ext-privacy-policies/landing/" + ext.slug + "/";
+    const card = document.createElement("div");
+    card.className = "card";
+    card.innerHTML = '<div class="card-icon">' + ext.icon + '</div>' +
+        '<h3>' + ext.name + '</h3>' +
+        '<p>' + ext.tagline + '</p>' +
+        '<div class="card-links">' +
+        '<a href="' + cwsUrl + '" target="_blank" rel="noopener" class="card-link card-link--cws">Chrome Web Store</a>' +
+        '<a href="' + landingUrl + '" class="card-link card-link--landing">Learn More</a>' +
+        '</div>';
+    grid.appendChild(card);
+});
+</script>
+
 </body>
 </html>
